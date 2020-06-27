@@ -1,0 +1,38 @@
+﻿@model ADCW.Models.CastMember
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4>CastMember</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Actors.ActorFirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Actors.ActorFirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Videos.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Videos.Title)
+            </dd>
+
+        </dl>
+
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.CastMemberId }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+        </p>
+    </div>
+
+</div>

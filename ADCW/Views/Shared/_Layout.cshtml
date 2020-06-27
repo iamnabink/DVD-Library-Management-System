@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</head>
+<body class="app-container app-theme-white body-tabs-shadow closed-sidebar fixed-header">
+    <div class="app-header header-shadow bg-grow-early header-text-light">
+        <div class="app-header__logo">
+            @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "logo-src" })
+        </div>
+        <div class="app-header__content">
+            <div class="app-header-left">
+                @if (this.User.IsInRole("Manager") || this.User.IsInRole("Assistant"))
+                {
+                    <ul class="header-menu nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                                <i class="nav-link-icon fa fa-database"></i>Database
+                            </a>
+                            <div role="menu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                @Html.ActionLink("Producers", "Index", "Producers", new object { }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Studios", "Index", "Studios", new object { }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Video Category", "Index", "VideoCategories", new object { }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Videos", "Index", "Videos", new object { }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("DVDs", "Index", "DVDs", new object { }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Actors", "Index", "Actors", new object { }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Cast Members", "Index", "CastMembers", new object { }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Members", "Index", "Members", new object { }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Member Category", "Index", "MemberCategories", new object { }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Loan", "Index", "Loans", new object { }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Loan Types", "Index", "LoanTypes", new object { }, new { @class = "dropdown-item" })
+                            </div>
+                        </li>
+                    </ul>
+                }
+                @if (this.User.IsInRole("Manager"))
+                {
+                    <ul class="header-menu nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                                <i class="nav-link-icon fa fa-user"></i>User Manager
+                            </a>
+                            <div role="menu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                @Html.ActionLink("User List", "viewUsers", "UserAndRoles", new object { }, new { @class = "dropdown-item" })
+                                @*@Html.ActionLink("Role List", "viewRoles", "UserAndRoles", new object { }, new { @class = "dropdown-item" })*@
+                                @Html.ActionLink("Assign Role", "AddUserToRole", "UserAndRoles", new object { }, new { @class = "dropdown-item" })
+                            </div>
+                        </li>
+                    </ul>
+                }
+            </div>
+            <div class="app-header-right">
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+        <div class="navbar-collapse collapse" id="mainNavBar">
+            @if (this.User.IsInRole("Manager"))
+            {
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Database</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            @Html.ActionLink("Producers", "Index", "Producers", new object { }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Studios", "Index", "Studios", new object { }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Video Category", "Index", "VideoCategories", new object { }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Videos", "Index", "Videos", new object { }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("DVDs", "Index", "DVDs", new object { }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Actors", "Index", "Actors", new object { }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Cast Members", "Index", "CastMembers", new object { }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Members", "Index", "Members", new object { }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Member Category", "Index", "MemberCategories", new object { }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Loan", "Index", "Loans", new object { }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Loan Types", "Index", "LoanTypes", new object { }, new { @class = "dropdown-item" })
+                        </div>
+                    </li>
+                </ul>
+            }
+            @if (this.User.IsInRole("Manager"))
+            {
+                <ul class="nav navbar-nav ">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">User Manager</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            @Html.ActionLink("User List", "viewUsers", "UserAndRoles", new object { }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Role List", "viewRoles", "UserAndRoles", new object { }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Set User Role", "AddUserToRole", "UserAndRoles", new object { }, new { @class = "dropdown-item" })
+                        </div>
+                    </li>
+                </ul>
+            }
+        </div>
+    </div>
+    <div class="app-main">
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <div class="app-page-title">
+                    <div class="page-title-wrapper">
+                        <div class="page-title-heading">
+                            <div>
+                                @Html.Encode(ViewBag.Title)
+                                <div class="page-title-subheading">@Html.Encode(ViewBag.SubTitle)</div>
+                            </div>
+                        </div>
+                        <div class="page-title-actions">
+                            @if (!String.IsNullOrEmpty(ViewBag.Create))
+                            {
+
+                                @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-alternate" })
+
+                            }
+                            else if (!String.IsNullOrEmpty(ViewBag.DeleteAll))
+                            {
+                                using (Html.BeginForm("deleteOldDVDs", "Report", FormMethod.Post, new { @class = "no-card" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" value="Delete All" class="btn btn-lg btn-danger">Delete All</button>
+                                }
+                            }
+                            else if (!String.IsNullOrEmpty(ViewBag.ManageUser))
+                            {
+                                @Html.ActionLink("Create New User", "RegisterUser", "Account", null, new { @class = "btn btn-lg btn-alternate" })
+                                @Html.ActionLink("Assign Role", "AddUserToRole", "UserAndRoles", null, new { @class = "btn btn-lg btn-primary" })
+                            }
+                        </div>
+                    </div>
+                </div>
+                @RenderBody()
+            </div>
+            <footer class="app-wrapper-footer">
+                <div class="app-footer">
+                    <div class="app-footer__inner">
+                        <span class="app-footer-left">@DateTime.Now.Year - Application Development</span>
+                        <span class="app-footer-right"> Sajag Acharya | Nabraj Khadka | Prachan Ghale | Tsedup Dorjee Lama</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    @Html.Partial("_ToastrMsg")
+</body>
+</html>

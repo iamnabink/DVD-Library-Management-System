@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ADCW.Models.MemberCategory>
+
+@{
+    ViewBag.Title = "Member Categories";
+    ViewBag.SubTitle = "List of Categories";
+    ViewBag.Create = "Create";
+}
+<div class="card">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MemCatName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalLoans)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PenaltyDays)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MemCatName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalLoans)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PenaltyDays)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.MemCatId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.MemCatId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.MemCatId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+

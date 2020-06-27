@@ -1,0 +1,67 @@
+﻿@model ADCW.Models.Loan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4>Loan</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Dvds.DVDId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Dvds.DVDId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LoanTypes.LoanTypeTitle)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LoanTypes.LoanTypeTitle)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Members.MemberFirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Members.MemberFirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateOut)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateOut)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateDue)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateDue)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateReturned)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateReturned)
+            </dd>
+
+        </dl>
+
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.LoanId }, new {@class = "btn btn-primary"}) 
+            @Html.ActionLink("Back to List", "Index", null,new {@class = "btn btn-secondary"})
+        </p>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+﻿<script>
+    @if (!String.IsNullOrEmpty(TempData["ErrorMsg"] as string))
+    {
+        <text>toastr["error"]("@Html.Encode(TempData["ErrorMsg"] as string)", "Error")</text>
+    }
+    @if (!String.IsNullOrEmpty(TempData["SuccessMsg"] as string))
+    {
+        <text>toastr["success"]("@Html.Encode(TempData["SuccessMsg"] as string)", "Success")</text>
+    }
+    else if (!String.IsNullOrEmpty(TempData["WarningMsg"] as string))
+    {
+        <text>toastr["warning"]("@Html.Encode(TempData["WarningMsg"] as string)", "Warning")</text>
+    }
+</script>

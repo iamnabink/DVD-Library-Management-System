@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ADCW.Models.DVD>
+
+@{
+    ViewBag.Title = "Show Loaned DVDs for Member";
+    ViewBag.SubTitle = "[Task 3] Shows the DVDs loaned in the last month by the Members having the selected ID or Last name";
+}
+<div class="card">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Dvd No
+                </th>
+                <th>
+                    Title
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DVDId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Videos.Title)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

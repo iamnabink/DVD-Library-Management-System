@@ -1,0 +1,80 @@
+﻿@model ADCW.Models.Loan
+
+@{
+    ViewBag.Title = "Find Last Loan";
+    ViewBag.SubTitle = "[Task 5] Finds the last loan details for the selected DVD Id.";
+}
+
+<div class="card">
+    @functions{
+        public bool test()
+        {
+            try
+            {
+                var x = Model.Members.MemberId;
+                return false;
+            }
+            catch
+            {
+                return true;
+            }
+        }
+    }
+    @if (test())
+    {
+        <div class="card-body">
+            <strong>Not Loaned Yet</strong>
+        </div>
+    }
+    else
+    {
+        <div class="card-header">
+            DVD Number: @Html.DisplayFor(model => model.Dvds.DVDId)
+        </div>
+        <div class="card-body">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Dvds.Videos.Title)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Dvds.Videos.Title)
+                </dd>
+
+                <dt>
+                    Member Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Members.MemberFirstName) @Html.DisplayFor(model => model.Members.MemberLastName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateOut)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DateOut)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateDue)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DateDue)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateReturned)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DateReturned)
+                </dd>
+
+            </dl>
+        </div>
+
+    }
+</div>

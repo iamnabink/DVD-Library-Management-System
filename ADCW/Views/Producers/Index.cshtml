@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ADCW.Models.Producer>
+
+@{
+    ViewBag.Title = "Producers";
+    ViewBag.SubTitle = "List of producers";
+    ViewBag.Create = "Create";
+    TempData["VideoDetailsModel"] = false;
+}
+<div class="card">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProducerFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProducerLastName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProducerFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProducerLastName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProducerId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ProducerId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProducerId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+

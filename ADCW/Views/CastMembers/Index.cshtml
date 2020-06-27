@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ADCW.Models.CastMember>
+
+@{
+    ViewBag.Title = "Cast Members";
+    ViewBag.SubTitle = "List of CastMembers";
+    ViewBag.Create = "Create";
+}
+<div class="card">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Actors.ActorFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Videos.Title)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Actors.ActorFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Videos.Title)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CastMemberId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CastMemberId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CastMemberId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

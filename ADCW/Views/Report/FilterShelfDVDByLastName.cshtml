@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ADCW.Models.VideoDVDCount>
+
+@{
+    ViewBag.Title = "Search DVDs on the Shelf";
+    ViewBag.SubTitle = "Finds the number of Dvds for videos for which a Cast member has the selected last name";
+}
+<div class="card">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Dvd Count
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DvdCount)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ADCW.Models.DVD>
+
+@{
+    ViewBag.Title = "DVDs";
+    ViewBag.SubTitle = "List of DVDs";
+    ViewBag.Create = "Create";
+}
+<div class="card">
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Videos.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateAdded)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Videos.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAdded)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DVDId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.DVDId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.DVDId })
+            </td>
+        </tr>
+    }
+
+</table>
+</div>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ADCW.Models.MemberLoans>
+
+@{
+    ViewBag.Title = "Member Loan Count";
+    ViewBag.SubTitle = "[Task 8] Shows the list of members along with the number of DVDs they currently have on loan.";
+}
+
+<div class="card">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Category
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemberFirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemberLastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateOfBirth)
+                </th>
+                <th>
+                    Loaned DVDs
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.category.MemCatName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemberFirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemberLastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOfBirth)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalLoaned)
+                        @if (item.TotalLoaned > item.category.TotalLoans)
+                        {
+                            <i class="glyphicon glyphicon-alert" title="Too many Loans"></i>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,42 @@
+﻿@model ADCW.Models.Actor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="card">
+<div class="card-body">
+    <h4>Actor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ActorFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActorFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActorLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActorLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+    </dl>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ActorId }, new { @class = "btn btn-primary" }) 
+        @Html.ActionLink("Back to List", "Index", null,new { @class = "btn btn-secondary" })
+    </p>
+</div>
+</div>

@@ -1,0 +1,75 @@
+﻿@model ADCW.Models.Video
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Producers.ProducerFirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Producers.ProducerFirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Studios.StudioName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Studios.StudioName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.VidCategories.VidCatName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.VidCategories.VidCatName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateReleased)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateReleased)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.StandardCharge)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StandardCharge)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PenaltyCharge)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PenaltyCharge)
+            </dd>
+
+        </dl>
+
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.VideoId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>

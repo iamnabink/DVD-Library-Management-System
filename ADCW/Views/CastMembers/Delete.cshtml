@@ -1,0 +1,35 @@
+﻿@model ADCW.Models.CastMember
+
+@{
+    ViewBag.Title = "Delete";
+    ViewBag.SubTitle = "Are you sure you want to delete this ?";
+}
+
+<div class="delete-form">
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Actors.ActorFirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Actors.ActorFirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Videos.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Videos.Title)
+            </dd>
+
+        </dl>
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> 
+            @Html.ActionLink("Back to List", "Index",null,new {@class= "btn btn-default" })
+        </div>
+    }
+</div>

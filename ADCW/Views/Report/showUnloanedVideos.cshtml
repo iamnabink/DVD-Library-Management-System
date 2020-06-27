@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ADCW.Models.Video>
+
+@{
+    ViewBag.Title = "Unpopular Videos";
+    ViewBag.SubTitle = "[Task 13] List of all Videos for which no DVDs have been loaned in the last 31 days.";
+}
+<div class="card">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Producers.ProducerFirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Studios.StudioName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VidCategories.VidCatName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateReleased)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StandardCharge)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PenaltyCharge)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Producers.ProducerFirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Studios.StudioName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VidCategories.VidCatName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateReleased)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StandardCharge)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PenaltyCharge)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

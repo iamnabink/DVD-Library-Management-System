@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ADCW.Models.Loan>
+
+@{
+    ViewBag.Title = "Loans";
+    ViewBag.SubTitle = "[Task 7] Shows list of loaned DVDs. Can be returned using the Return button.";
+    if (User.IsInRole("Manager"))
+    {
+        ViewBag.Create = "Create";
+    }
+}
+
+<div class="card">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dvds.DVDId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LoanTypes.LoanTypeTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Members.MemberFirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateOut)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateDue)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateReturned)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dvds.DVDId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoanTypes.LoanTypeTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Members.MemberFirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOut)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateDue)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateReturned)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.LoanId }, new { @class = "btn-sm btn-info" })
+                        @if (item.DateReturned == null)
+                        {
+                            @Html.ActionLink("Return", "ReturnDVD", "Report", new { id = item.LoanId }, new { @class = "btn-sm btn-alternate" })
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+
+    </table>
+</div>

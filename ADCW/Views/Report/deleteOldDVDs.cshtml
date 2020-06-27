@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ADCW.Models.DVD>
+
+@{
+    ViewBag.Title = "Delete Old DVDs";
+    ViewBag.SubTitle = "[Task 10] Removes all year old DVDs that are currently on the shelf from the system.";
+    ViewBag.DeleteAll = "deleteOldDVDs";
+}
+<div class="card">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Copy Number</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Videos.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateAdded)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DVDId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Videos.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateAdded)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

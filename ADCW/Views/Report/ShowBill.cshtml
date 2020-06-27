@@ -1,0 +1,51 @@
+﻿@model ADCW.Models.Loan
+
+@{
+    ViewBag.Title = "Bill for Loan";
+    ViewBag.SubTitle = "[Task 6] Shows the amount to be paid in order to loan the DVD.";
+}
+
+@using (Html.BeginForm("ShowBill", "Report", Model, FormMethod.Post, htmlAttributes: new { @class = "card" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="card-header card-addon short bg-deep-blue">
+        <div class="prepend">
+            <div class="key text-center">@Html.DisplayFor(model => model.DvdId)</div>
+        </div>
+        @Html.Encode(TempData["VideoName"] as string)
+    </div>
+    <div class="form-horizontal card-body">
+        <dl class="dl-horizontal">
+            <dt>
+                Member
+            </dt>
+            <dd>
+                @Html.Encode(TempData["MemberName"] as string)
+            </dd>
+
+            <dt>
+                Date Loaned
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateOut)
+            </dd>
+
+            <dt>
+                Date Due
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateDue)
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer card-addon">
+        <div class="prepend">
+            <span class="key bg-light">Charge</span>
+            <span class="value">NRS. @Html.Encode(TempData["Charge"] as string)</span>
+        </div>
+        <input type="submit" value="Confirm" class="btn btn-success" />
+        @Html.ActionLink("Cancel", "LoanToMember", null, new { @class = "btn btn-danger" })
+    </div>
+}

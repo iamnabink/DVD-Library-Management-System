@@ -1,0 +1,183 @@
+﻿.form-group input {
+    max-width: 280px;
+}
+
+.alert {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    box-shadow: 3px 3px 6px 0px #737282;
+}
+
+.glyphicon-alert {
+    color: orangered;
+    transition: 0.5s ease-in-out;
+}
+
+    .glyphicon-alert:hover {
+        transform: rotate(360deg);
+    }
+
+.input-group {
+    max-width: 280px;
+}
+
+.form-control {
+    max-width: 280px;
+}
+
+.input-group .chosen-container {
+    max-width: 230px;
+}
+
+.input-group ul.chosen-choices {
+    display: block;
+    width: 100%;
+    min-height: 34px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    padding: 0 10px;
+}
+
+.input-group input.chosen-search-input {
+    height: 30px !important;
+}
+
+.input-group li.search-choice {
+    margin-top: 5px !important;
+}
+
+.header-text-light {
+    color: white !important;
+}
+
+.widget-heading, .widget-subheading {
+    opacity: 1 !important;
+}
+
+.app-header .app-header__content .header-menu .nav-link {
+    color: white;
+}
+
+.closed-sidebar .app-header .app-header__logo {
+    width: 150px !important;
+}
+
+.closed-sidebar .app-header .logo-src {
+    height: 56px !important;
+    width: 97px !important;
+    display: block !important;
+}
+
+.app-main__inner form:not(.no-card) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(26,54,126,0.125);
+    border-radius: .25rem;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4,9,20,0.03), 0 0.9375rem 1.40625rem rgba(4,9,20,0.03), 0 0.25rem 0.53125rem rgba(4,9,20,0.05), 0 0.125rem 0.1875rem rgba(4,9,20,0.03);
+    border-width: 0;
+    transition: all .2s;
+}
+
+.app-main__inner form div.form-group:nth-child(1),
+.app-main__inner form div.form-group:nth-child(2) {
+    margin-top: 15px;
+}
+
+.app-main__inner form div.form-group {
+    padding-left: 10px;
+}
+
+input[type="submit"] {
+    margin-right: 10px;
+}
+
+.delete-form form {
+    padding: 15px;
+}
+
+.widget-icon {
+    font-size: 30px;
+    padding: 0 5px;
+}
+
+.card .table {
+    margin-bottom: 0;
+}
+
+.app-main .app-main__inner {
+    padding: 30px 30px 15px !important;
+}
+
+.card-addon.short .prepend {
+    width: 60px;
+}
+
+.card-addon.short{
+    padding-left: 70px;
+}
+
+.card-addon .prepend {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 59px;
+    display: table;
+    width: 180px;
+}
+
+.card-addon .prepend .key,
+.card-addon .prepend .value {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    padding: 10px;
+    border-right: 1px solid #d1d6e2;
+}
+
+.card-addon .prepend .value {
+    background-color: #f7f9fa;
+}
+
+.card-addon .prepend .key
+{
+    font-weight: bold;
+}
+
+.card-addon {
+    position: relative;
+    padding-left: 190px;
+    min-height: 60px;
+}
+
+.widget-content .form-control-sm {
+    min-width: 150px;
+}
+
+.btn-lg {
+    margin-left: 15px;
+}
+
+.widget-heading {
+    text-align: right;
+}

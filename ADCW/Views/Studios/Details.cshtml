@@ -1,0 +1,27 @@
+﻿@model ADCW.Models.Studio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="card">
+<div class="card-body">
+    <h4>Studio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StudioName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudioName)
+        </dd>
+
+    </dl>
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.StudioId }, new { @class = "btn btn-primary" }) 
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+    </p>
+</div>
+</div>

@@ -1,0 +1,328 @@
+﻿@model ADCW.Models.DashboardModel
+
+@{
+    ViewBag.Title = "Dashboard";
+    ViewBag.SubTitle = "Links to all the tasks for the coursework";
+}
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-3 widget-content bg-amy-crisp">
+                <div class="widget-content-wrapper text-dark">
+                    <div class="widget-content-left">
+                        <div class="widget-numbers fsize-3">Task 1</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-heading">Search Video</div>
+                        <div class="widget-subheading">
+                            @using (Html.BeginForm("FilterTitleByLastName", "Report", FormMethod.Get, new { @class = "no-card" }))
+                            {
+                                <div class="input-group">
+                                    @Html.DropDownList("LastName", null, htmlAttributes: new { @class = "form-control form-control-sm" })
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-outline-dark border-0"><i class="fa fa-arrow-right"></i></button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3 widget-content bg-arielle-smile">
+                <div class="widget-content-wrapper text-dark">
+                    <div class="widget-content-left">
+                        <div class="widget-numbers fsize-3">Task 2</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-heading">Search Shelved DVDs</div>
+                        <div class="widget-subheading">
+
+                            @using (Html.BeginForm("FilterShelfDVDByLastName", "Report", FormMethod.Get, new { @class = "no-card" }))
+                            {
+                                <div class="input-group">
+                                    @Html.DropDownList("LastName", null, htmlAttributes: new { @class = "form-control form-control-sm" })
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-outline-dark border-0"><i class="fa fa-arrow-right"></i></button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3 widget-content bg-asteroid">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-numbers fsize-3">Task 3</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-heading">Search last month's loans</div>
+                        <div class="widget-subheading">
+
+                            @using (Html.BeginForm("FilterByMember", "Report", FormMethod.Get, new { @class = "no-card" }))
+                            {
+                                <div class="input-group">
+                                    <input type="text" class="form-control form-control-sm" name="MemberId" placeholder="Enter Member Id" />
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-outline-warning border-0"><i class="fa fa-arrow-right"></i></button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3 widget-content bg-asteroid">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-numbers fsize-3">Task 3</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-heading">Search last month's loans</div>
+                        <div class="widget-subheading">
+
+                            @using (Html.BeginForm("FilterByMember", "Report", FormMethod.Get, new { @class = "no-card" }))
+                            {
+                                <div class="input-group">
+                                    @Html.DropDownList("MemberLN", null, htmlAttributes: new { @class = "form-control form-control-sm" })
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-outline-warning border-0"><i class="fa fa-arrow-right"></i></button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3 widget-content bg-deep-blue">
+                <div class="widget-content-wrapper text-dark">
+                    <div class="widget-content-left">
+                        <div class="widget-numbers fsize-3">Task 4</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-heading">Show All Video Details</div>
+                        <div class="widget-subheading">
+                            @using (Html.BeginForm("VideoDetails", "Report", FormMethod.Get, new { @class = "no-card" }))
+                            {
+                                <button type="submit" class="btn btn-outline-dark border-0 float-right"><i class="fa fa-arrow-right"></i></button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3 widget-content bg-grow-early">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-numbers fsize-3">Task 5</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-heading">Search last loan</div>
+                        <div class="widget-subheading">
+                            @using (Html.BeginForm("LastLoan", "Report", FormMethod.Get, new { @class = "no-card" }))
+                            {
+                                <div class="input-group">
+                                    <input type="text" class="form-control form-control-sm" name="DvdId" placeholder="Enter Dvd Id" />
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-outline-dark border-0"><i class="fa fa-arrow-right"></i></button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3 widget-content bg-night-fade">
+                <div class="widget-content-wrapper text-dark">
+                    <div class="widget-content-left">
+                        <div class="widget-numbers fsize-3">Task 6</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-heading">Loan DVD to member</div>
+                        <div class="widget-subheading">
+                            @using (Html.BeginForm("LoanToMember", "Report", FormMethod.Get, new { @class = "no-card" }))
+                            {
+                                <button type="submit" class="btn btn-outline-dark border-0 float-right"><i class="fa fa-arrow-right"></i></button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3 widget-content bg-sunny-morning">
+                <div class="widget-content-wrapper text-dark">
+                    <div class="widget-content-left">
+                        <div class="widget-numbers fsize-3">Task 7</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-heading">Return DVDs</div>
+                        <div class="widget-subheading">
+                            @using (Html.BeginForm("Index", "Loans", FormMethod.Get, new { @class = "no-card" }))
+                            {
+                                <button type="submit" class="btn btn-outline-dark border-0 float-right"><i class="fa fa-arrow-right"></i></button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3 widget-content bg-royal">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-numbers fsize-3">Task 8</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-heading">Show Loaned DVD count</div>
+                        <div class="widget-subheading">
+                            @using (Html.BeginForm("showMemberLoanDetails", "Report", FormMethod.Get, new { @class = "no-card" }))
+                            {
+                                <button type="submit" class="btn btn-outline-light border-0 float-right"><i class="fa fa-arrow-right"></i></button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3 widget-content bg-happy-fisher">
+                <div class="widget-content-wrapper text-dark">
+                    <div class="widget-content-left">
+                        <div class="widget-numbers fsize-3">Task 9</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-heading">Add new Video</div>
+                        <div class="widget-subheading">
+                            @using (Html.BeginForm("AddVideoTitle", "Report", FormMethod.Get, new { @class = "no-card" }))
+                            {
+                                <button type="submit" class="btn btn-outline-dark border-0 float-right"><i class="fa fa-arrow-right"></i></button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3 widget-content bg-danger">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-numbers fsize-3">Task 10</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-heading">Remove old DVDs</div>
+                        <div class="widget-subheading">
+                            @using (Html.BeginForm("deleteOldDVDs", "Report", FormMethod.Get, new { @class = "no-card" }))
+                            {
+                                <button type="submit" class="btn btn-outline-light border-0 float-right"><i class="fa fa-arrow-right"></i></button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3 widget-content bg-plum-plate">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-numbers fsize-3">Task 11</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-heading">Show Loaned DVDs</div>
+                        <div class="widget-subheading">
+                            @using (Html.BeginForm("showLoanedDvds", "Report", FormMethod.Get, new { @class = "no-card" }))
+                            {
+                                <button type="submit" class="btn btn-outline-light border-0 float-right"><i class="fa fa-arrow-right"></i></button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3 widget-content bg-strong-bliss">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-numbers fsize-3">Task 12</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-heading">Show Inactive Members</div>
+                        <div class="widget-subheading">
+                            @using (Html.BeginForm("showMemberLoans", "Report", FormMethod.Get, new { @class = "no-card" }))
+                            {
+                                <button type="submit" class="btn btn-outline-light border-0 float-right"><i class="fa fa-arrow-right"></i></button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3 widget-content bg-midnight-bloom">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-numbers fsize-3">Task 13</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-heading">Show Unpopular Videos</div>
+                        <div class="widget-subheading">
+                            @using (Html.BeginForm("showUnloanedVideos", "Report", FormMethod.Get, new { @class = "no-card" }))
+                            {
+                                <button type="submit" class="btn btn-outline-light border-0 float-right"><i class="fa fa-arrow-right"></i></button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3 widget-content bg-premium-dark">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-numbers fsize-3">Task 14</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-heading">Change My Password</div>
+                        <div class="widget-subheading">
+                            @using (Html.BeginForm("changePassword", "Manage", FormMethod.Get, new { @class = "no-card" }))
+                            {
+                                <button type="submit" class="btn btn-outline-light border-0 float-right"><i class="fa fa-arrow-right"></i></button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @if (User.IsInRole("Manager"))
+        {
+            <div class="col-md-4">
+                <div class="card mb-3 widget-content bg-slick-carbon">
+                    <div class="widget-content-wrapper text-white">
+                        <div class="widget-content-left">
+                            <div class="widget-numbers fsize-3">Task 14</div>
+                        </div>
+                        <div class="widget-content-right">
+                            <div class="widget-heading">User Manager</div>
+                            <div class="widget-subheading">
+                                @using (Html.BeginForm("viewUsers", "UserAndRoles", FormMethod.Get, new { @class = "no-card" }))
+                                {
+                                    <button type="submit" class="btn btn-outline-warning border-0">Manager Only  <i class="fa fa-arrow-right"></i></button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>

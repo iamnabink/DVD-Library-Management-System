@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ADCW.Models.Loan>
+
+@{
+    ViewBag.Title = "Loaned DVDs";
+    ViewBag.SubTitle = "[Task 11] List of all DVD copies currently on loan. For each date out, the total number of loans is also displayed.";
+}
+<div class="card">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Copy Number
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LoanTypes.LoanTypeTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Members.MemberFirstName)
+                </th>
+                <th>
+                    DateOut [Loans that day]
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateDue)
+                </th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dvds.DVDId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dvds.Videos.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoanTypes.LoanTypeTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Members.MemberFirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOut)
+                        [<strong>@Html.Encode(((Dictionary<int, int>)TempData["loanCount"])[item.DvdId])</strong>]
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateDue)
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
+

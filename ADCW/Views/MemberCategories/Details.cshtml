@@ -1,0 +1,43 @@
+﻿@model ADCW.Models.MemberCategory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4>MemberCategory</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MemCatName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MemCatName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TotalLoans)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TotalLoans)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PenaltyDays)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PenaltyDays)
+            </dd>
+
+        </dl>
+
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.MemCatId }, new { @class = "btn btn-primary" }) 
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+        </p>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ADCW.Models.CastMember>
+
+@{
+    ViewBag.Title = "Search Videos";
+    ViewBag.SubTitle = "[Task 1] Finds all Videos for which a Cast member has the selected last name";
+}
+<div class="card">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Videos.Title)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Videos.Title)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

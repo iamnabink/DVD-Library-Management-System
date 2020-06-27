@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ADCW.Models.Video>
+
+@{
+    ViewBag.Title = "Videos";
+    ViewBag.SubTitle = "List of videos";
+    ViewBag.Create = "Create";
+}
+
+<h2>Index</h2>
+<div class="card">
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Producers.ProducerFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Studios.StudioName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VidCategories.VidCatName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateReleased)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StandardCharge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PenaltyCharge)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producers.ProducerFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Studios.StudioName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VidCategories.VidCatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateReleased)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StandardCharge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PenaltyCharge)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.VideoId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.VideoId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.VideoId })
+            </td>
+        </tr>
+    }
+
+</table>
+</div>

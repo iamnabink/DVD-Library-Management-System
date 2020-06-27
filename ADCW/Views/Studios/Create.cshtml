@@ -1,0 +1,40 @@
+﻿@model ADCW.Models.Studio
+
+@{
+    ViewBag.Title = "Create";
+    ViewBag.SubTitle = "Create a new studios";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.StudioName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StudioName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StudioName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+                @if (TempData.ContainsKey("VideoDetailsModel") && (bool)TempData["VideoDetailsModel"])
+                {
+                    @Html.ActionLink("Back to Video creation", "addVideoTitle", "Report", null, new { @class = "btn btn-secondary" })
+                }
+                else
+                {
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

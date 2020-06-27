@@ -1,0 +1,68 @@
+﻿@model ADCW.Models.Loan
+
+@{
+    ViewBag.Title = "Bill for Return";
+    ViewBag.SubTitle = "[Task 7] Shows bill with late penalty charge (if applicable).";
+}
+
+@using (Html.BeginForm("ReturnDVD", "Report", Model, FormMethod.Post, new { @class = "card" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="card-header card-addon short bg-deep-blue">
+        <div class="prepend">
+            <div class="key text-center">@Html.DisplayFor(model => model.DvdId)</div>
+        </div>
+        @Html.Encode(TempData["VideoName"] as string)
+    </div>
+    <div class="form-horizontal card-body">
+        <dl class="dl-horizontal">
+            <dt>
+                Loan Type
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LoanTypes.LoanTypeTitle)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Members.MemberFirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Members.MemberFirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateOut)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateOut)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateDue)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateDue)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateReturned)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateReturned)
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer card-addon">
+        <div class="prepend">
+            <span class="key bg-light">Penalty</span>
+            <span class="value">NRS. @Html.Encode(TempData["Penalty"] as string)</span>
+        </div>
+        <input type="submit" value="Confirm" class="btn btn-success" />
+        @Html.ActionLink("Cancel", "Index", "Loans", null, new { @class = "btn btn-danger" })
+    </div>
+}

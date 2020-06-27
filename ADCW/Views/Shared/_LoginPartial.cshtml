@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <div class="header-btn-lg pr-0">
+        <div class="widget-content p-0">
+            <div class="widget-content-wrapper">
+                <div class="widget-content-left">
+                    <div class="btn-group">
+                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                            <img width="42" class="rounded-circle" src="~/Content/assets/images/avatar.png" alt="">
+                            <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                        </a>
+                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                @Html.ActionLink("Manage Account", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "dropdown-item", title = "Manage" })
+                                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="widget-content-left  ml-3 header-user-info">
+                    <div class="widget-heading">
+                        @Html.Encode(User.Identity.GetUserName())
+                    </div>
+                    <div class="widget-subheading">
+                        @if (User.IsInRole("Manager"))
+                        {
+                            @Html.Encode("Manager")
+                        }
+                        else if (User.IsInRole("Assistant"))
+                        {
+                            @Html.Encode("Assistant")
+                        }
+                        else
+                        {
+                            @Html.Encode("---")
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <ul class="header-menu nav">
+        <li class="nav-item">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "nav-link", id = "registerLink" })</li>
+        <li class="nav-item">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "nav-link", id = "loginLink" })</li>
+    </ul>
+}

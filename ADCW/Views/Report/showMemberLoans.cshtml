@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ADCW.Models.Loan>
+
+@{
+    ViewBag.Title = "Inactive Members";
+    ViewBag.SubTitle = "[Task 12] List of all Members who have not borrowed any DVD in the last 31 days";
+}
+<div class="card">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Member FirstName</th>
+                <th>Member LastName</th>
+                <th>Member Address</th>
+                <th>DateOut</th>
+                <th>DVD Title</th>
+                <th>Days since Last Loan</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Members.MemberFirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Members.MemberLastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Members.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOut)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dvds.Videos.Title)
+                    </td>
+                    <td>
+                        @Html.Encode(DateTime.Today.Subtract(item.DateOut).TotalDays)
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

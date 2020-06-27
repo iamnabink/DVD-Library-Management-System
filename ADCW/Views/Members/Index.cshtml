@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ADCW.Models.Member>
+
+@{
+    ViewBag.Title = "Members";
+    ViewBag.SubTitle = "List of members";
+    ViewBag.Create = "Create";
+}
+<div class="card">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MemberCategories.MemCatName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MemberFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MemberLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MemberCategories.MemCatName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MemberFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MemberLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MemberId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MemberId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MemberId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

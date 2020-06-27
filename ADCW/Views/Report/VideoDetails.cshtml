@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ADCW.Models.VideoDetail>
+@{
+    ViewBag.Title = "Video Details";
+    ViewBag.SubTitle = "[Task 4] Shows video details along with their cast members for all Videos in the system.";
+}
+
+<div class="card">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Producer</th>
+                <th>Studio</th>
+                <th>Date Released</th>
+                <th>Cast</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Producer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Studio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateReleased)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ActorLN), @Html.DisplayFor(modelItem => item.ActorFN)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

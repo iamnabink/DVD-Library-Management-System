@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ADCW.Models.VideoCategory>
+
+@{
+    ViewBag.Title = "Video Categories";
+    ViewBag.SubTitle = "List of video category";
+    ViewBag.Create = "Create";
+}
+
+<div class="card">
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VidCatName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgeRestricted)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VidCatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgeRestricted)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.VidCatId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.VidCatId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.VidCatId })
+            </td>
+        </tr>
+    }
+
+</table>
+</div>

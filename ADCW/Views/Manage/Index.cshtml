@@ -1,0 +1,30 @@
+﻿@model ADCW.Models.IndexViewModel
+@{
+    ViewBag.Title = "Manage Account";
+    ViewBag.SubTitle = "Change your account settings";
+}
+
+    <div class="col-md-4">
+        <div class="card mb-3 widget-content bg-asteroid">
+            <div class="widget-content-wrapper text-white">
+                <div class="widget-content-left">
+                    <div class="widget-icon">
+                        <i class="fa fa-key icon-gradient bg-warm-flame"> </i>
+                    </div>
+                </div>
+                <div class="widget-content-right">
+                    <div class="widget-heading">Password Management</div>
+                    <div class="widget-subheading">
+                        @if (Model.HasPassword)
+                        {
+                            @Html.ActionLink("Change your password", "ChangePassword", null, new { @class="btn btn-transition btn-outline-warning border-0" })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Create", "SetPassword", null, new { @class= "btn btn-transition btn-outline-warning border-0" })
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
